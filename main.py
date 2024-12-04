@@ -22,6 +22,14 @@ while a:
     if mostrar_inicio == True:
         pantalla.blit(fondo_menu,(0,0))
         pantalla_inicio(pantalla,puntos_maximos,ia)
+        for i in range(2):
+            texto = mostrar_texto(pantalla,archivo_ranking)
+            y = 500
+            for linea in texto:
+                fuente_textos_70= pygame.font.Font(None,40)
+                texto_a = fuente_textos_70.render(linea.strip(), True, BLANCO)
+                pantalla.blit(texto_a, (50, y))
+                y += 50
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 a = False
@@ -211,9 +219,11 @@ while a:
             ganador_cartas = None
         if ronda_ganada_jugador == 2:
             print("el ganador es el jugador \n¡Fin del juego!")
+            jugador = 1
             a = False
         elif ronda_ganada_ia == 2:
             print("el gamador es la ia\n¡Fin del juego!")
+            ia = 1
             a = False
 
 
@@ -242,7 +252,7 @@ while a:
         if puntos_equipo_1 >= puntos_para_ganar or puntos_equipo_2 >= puntos_para_ganar:
             print("¡Fin del juego!")
             a = False
-
+    
     if a == False:
         time.sleep(1)
     pygame.display.flip()
