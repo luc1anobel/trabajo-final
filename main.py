@@ -247,11 +247,3 @@ while a:
         time.sleep(1)
     pygame.display.flip()
 pygame.quit()
-
-
-'''
-repartir las cartas al terminar el turno  x
-ranking   x   
-las dos IA  x 
-sistema de ver quien empeza tirando  x 
-'''
